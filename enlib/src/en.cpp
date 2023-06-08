@@ -1,5 +1,5 @@
 #include "en.h"
 
-int myfunc(int val){
+int enfunc(int val){
     return val + 1;
 }
