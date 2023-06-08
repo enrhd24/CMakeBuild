@@ -1,0 +1,1 @@
+int youfunc(int x);

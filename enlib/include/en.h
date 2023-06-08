@@ -1,0 +1,1 @@
+int enfunc(int val);
