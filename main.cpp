@@ -1,21 +1,30 @@
-#include "opencv2/opencv.hpp"
-#include <iostream>  
+#include <iostream>
+#include "opencv2/imgproc.hpp"
+#include "opencv2/imgcodecs.hpp"
+#include "opencv2/highgui.hpp"
   
 using namespace cv;  
 using namespace std;  
   
 int main(int, char**){
-    Mat cloud, cloud_1, cloud1, cloud2, cloud3;
-    cloud = imread("../img/cloud.jpg",IMREAD_COLOR);
-    resize(cloud,cloud_1,Size(200,200));
-    flip(cloud_1,cloud1,0);
-    flip(cloud_1,cloud2,1);
-    flip(cloud_1,cloud3,-1);
-    imshow("cloud",cloud_1);
-    imshow("cloud1",cloud1);
-    imshow("cloud2",cloud2);
-    imshow("cloud3",cloud3);
+    Mat src,r_src, dst;
+    src = imread("../img/cloud.jpg");
+    resize(src, r_src,Size(500,500));
+
+    Point center = Point(r_src.cols / 2, r_src.rows / 2);
+    double angle = 45.0;
+    double scale = 1.0;
+
+    Mat round;
+    round = getRotationMatrix2D(center, angle, scale);
+
+    warpAffine(r_src, dst, round, r_src.size());
+
+    imshow("src",r_src);
+    imshow("dst", dst);
 
     waitKey(0);
+    
+    
     return 0;
 }
