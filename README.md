@@ -26,3 +26,7 @@
 - cmake . && make
 - library structure
 - out package added
+- 
+4. opencv input 
+- unzip opencv.zip
+- ~/CMakeBuild/build$ cmake .. && make
