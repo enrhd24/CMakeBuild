@@ -28,5 +28,5 @@
 - out package added
 - 
 4. opencv input 
-- unzip opencv.zip
+- unzip opencv-4.4.0.zip
 - ~/CMakeBuild/build$ cmake .. && make
